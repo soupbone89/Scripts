@@ -9,4 +9,3 @@ Retrives the geolocation of the compromised Windows machine
 2) Extract the location
 
 `$Lat, $Lon = Get-GeoLocation`
-![image](https://github.com/user-attachments/assets/79ffe2d7-4d41-4a31-acae-bea6b2586c9d)
