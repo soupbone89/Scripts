@@ -1,5 +1,5 @@
 ## About
-The script creates a fake `.lnk` file 
+The script creates a fake `.lnk` file that will leak the NTLM hash once the directory is opened (Responder-like attacks)
 
 ## Syntax
 1) Import the script
