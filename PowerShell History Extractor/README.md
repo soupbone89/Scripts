@@ -1,4 +1,4 @@
-### PowerShell History Extractor
+## PowerShell History Extractor
 Tool made to facilitate the extraction and analysis of command history files
 
 ### Windows
