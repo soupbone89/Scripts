@@ -14,4 +14,4 @@ You can also specify the directory yourself
 
 2. Decode the loot
 
-`[Text.Encoding]::UTF8.GetString([Convert]::FromBase64String($base64))`
+`[Text.Encoding]::UTF8.GetString([Convert]::FromBase64String($data))`
