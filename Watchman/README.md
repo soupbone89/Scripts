@@ -7,4 +7,5 @@ This PowerShell script provides two simple functions to detect user presence bas
 
 ## Usage
 `Target-Comes`
+
 `Target-Leaves -Seconds 10`
