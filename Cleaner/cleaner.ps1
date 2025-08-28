@@ -1,7 +1,3 @@
-## Usage
-## .\Clean-Exfil
-## If you get execution policy errors, use powershell -ExecutionPolicy Bypass -File .\Clean-Exfil.ps1
-
 function Clean-Exfil { 
 
     <#
