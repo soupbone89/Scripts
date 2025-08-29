@@ -1,7 +1,3 @@
-## Usage
-## Set-WallPaper -Image "C:\Users\Public\Pictures\Sample.jpg" -Style Fit
-## Supported image formats: BMP, JPG, PNG, but Windows internally prefers BMP. If you use JPG/PNG, Windows may convert it behind the scenes.
-
 function Set-WallPaper {
 <#
 .SYNOPSIS
