@@ -11,7 +11,7 @@ $psPerfCPU.NextValue() | Out-Null
 
 $StartDate = Get-Date
 
-Write-Output "---LOADING STARTED ;)---"
+Write-Output "---LOADING STARTED---"
 
 # Loading script
 #
@@ -34,8 +34,4 @@ Stop-Job *
 Remove-Job *
 
 $EndDate = Get-Date
-Write-Output " Load Complete"
-
-
-# Test it on virtual machine  
- 
+Write-Output "Load Complete" 
