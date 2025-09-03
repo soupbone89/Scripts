@@ -1,6 +1,3 @@
-# Save a copy of Process and Memory Usage , Network speed , Local Address , Running Programs , Network Running Ports on Temp Path
-# For More Info Visit https://github.com/Whitecat18/Powershell-Scripts-for-Hackers-and-Pentesters 
-
 $processes = Get-Process
 
 $services = Get-Service | Where-Object { $_.Status -eq 'Running' }
